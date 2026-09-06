@@ -27,10 +27,10 @@ export interface NavigationConfig {
 
 export const navigation: NavigationConfig = {
   links: [
-    { label: "Menu", href: "#menu" },
-    { label: "Our Story", href: "#story" },
-    { label: "Gallery", href: "#gallery" },
-    { label: "Visit", href: "#visit" },
+    { label: "Menu", href: "/#menu" },
+    { label: "Our Story", href: "/#story" },
+    { label: "Gallery", href: "/#gallery" },
+    { label: "Visit", href: "/#visit" },
   ],
   primaryCta: {
     mode: "reservation",

@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import type { CSSProperties } from "react";
 import { Cormorant_Garamond, Inter } from "next/font/google";
 import "./globals.css";
@@ -19,6 +19,14 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: `${restaurant.name} — ${restaurant.descriptor}`,
   description: restaurant.description,
+};
+
+// `viewportFit: "cover"` lets `env(safe-area-inset-bottom)` resolve on
+// notched devices, used by the mobile sticky CTA.
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

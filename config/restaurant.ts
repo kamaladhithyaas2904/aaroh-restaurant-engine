@@ -9,12 +9,15 @@
  * components should not need to change.
  */
 
-export type CtaMode = "reservation" | "whatsapp" | "ordering";
+export type CtaMode = "reservation" | "whatsapp" | "ordering" | "link";
 
 export interface CallToAction {
   mode: CtaMode;
   label: string;
-  href: string;
+  /** Only required (and used) when `mode` is "link" — every other mode
+   * resolves its destination from the matching config below via
+   * `resolveCtaHref`, so it isn't duplicated here. */
+  href?: string;
 }
 
 export interface ReservationConfig {
@@ -56,6 +59,10 @@ export interface RestaurantHero {
   eyebrow: string;
   title: string;
   description: string;
+  /** Path under `public/` (or a full URL). Swap this to re-skin the hero —
+   * no component changes required. */
+  image: string;
+  imageAlt: string;
 }
 
 export interface RestaurantConfig {
@@ -71,7 +78,9 @@ export interface RestaurantConfig {
   social: SocialLinks;
   hero: RestaurantHero;
   cta: {
-    primary: CallToAction;
+    /** The hero's secondary action; the primary action always comes from
+     * `getPrimaryConversionCta()` so it can never disagree with the mobile
+     * sticky CTA. */
     secondary: CallToAction;
   };
   reservation: ReservationConfig;
@@ -108,17 +117,14 @@ export const restaurant: RestaurantConfig = {
     eyebrow: "Mumbai · Est. 2018",
     title: "A table worth gathering around",
     description: "Modern Indian cuisine, rooted in tradition.",
+    image: "/images/hero/aaroh-hero.jpg",
+    imageAlt: "Warm, softly lit dining room at AAROH set for evening service",
   },
   cta: {
-    primary: {
-      mode: "reservation",
-      label: "Reserve a Table",
-      href: "/reserve",
-    },
     secondary: {
-      mode: "whatsapp",
-      label: "Message on WhatsApp",
-      href: "https://wa.me/919000000000",
+      mode: "link",
+      label: "Explore Menu",
+      href: "/#menu",
     },
   },
   reservation: {
@@ -132,3 +138,69 @@ export const restaurant: RestaurantConfig = {
     href: "",
   },
 };
+
+/**
+ * Resolves the real destination for a `CtaMode`. Centralizing this means a
+ * CTA's link is always driven by the restaurant's actual reservation/
+ * ordering/contact settings, instead of being copy-pasted next to every
+ * label. `fallbackHref` is only used for `mode: "link"`, since that mode has
+ * no other source of truth for its destination.
+ */
+export function resolveCtaHref(mode: CtaMode, fallbackHref?: string): string {
+  switch (mode) {
+    case "reservation":
+      return restaurant.reservation.href;
+    case "ordering":
+      return restaurant.ordering.href;
+    case "whatsapp":
+      return `https://wa.me/${restaurant.contact.whatsapp}`;
+    case "link":
+      return fallbackHref ?? "#";
+  }
+}
+
+/** Whether a CTA mode currently has an active destination. */
+export function isCtaEnabled(mode: CtaMode): boolean {
+  switch (mode) {
+    case "reservation":
+      return restaurant.reservation.enabled;
+    case "ordering":
+      return restaurant.ordering.enabled;
+    case "whatsapp":
+    case "link":
+      return true;
+  }
+}
+
+/**
+ * The restaurant's main conversion action: ordering takes priority when
+ * enabled, otherwise reservation, otherwise a WhatsApp fallback (always
+ * available since every restaurant has a contact number). Both the Hero's
+ * primary CTA and the mobile sticky CTA call this — a single source of
+ * truth so they can never disagree about which action is "primary".
+ */
+export function getPrimaryConversionCta(): {
+  mode: CtaMode;
+  href: string;
+  label: string;
+} {
+  if (restaurant.ordering.enabled) {
+    return {
+      mode: "ordering",
+      href: restaurant.ordering.href,
+      label: restaurant.ordering.label,
+    };
+  }
+  if (restaurant.reservation.enabled) {
+    return {
+      mode: "reservation",
+      href: restaurant.reservation.href,
+      label: restaurant.reservation.label,
+    };
+  }
+  return {
+    mode: "whatsapp",
+    href: resolveCtaHref("whatsapp"),
+    label: "Message on WhatsApp",
+  };
+}
