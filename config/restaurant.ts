@@ -65,6 +65,27 @@ export interface RestaurantStory {
   imageAlt: string;
 }
 
+export interface SeasonalPrice {
+  amount: number;
+  /** e.g. "person" — combined with `restaurant.currency` and `amount` as
+   * "{currency}{amount} / {unit}", so no currency symbol is stored here. */
+  unit: string;
+}
+
+export interface RestaurantSeasonal {
+  eyebrow: string;
+  heading: string;
+  description: string;
+  price: SeasonalPrice;
+  /** Path under `public/` (or a full URL) — see `restaurant.hero.image`. */
+  image: string;
+  imageAlt: string;
+  /** Resolved the same way as every other CTA via `resolveCtaHref`/
+   * `isCtaEnabled` — typically `mode: "reservation"` so it always tracks the
+   * restaurant's real reservation settings. */
+  cta: CallToAction;
+}
+
 export interface RestaurantContact {
   phone: string;
   whatsapp: string;
@@ -97,6 +118,7 @@ export interface RestaurantConfig {
   hero: RestaurantHero;
   intro: RestaurantIntro;
   story: RestaurantStory;
+  seasonal: RestaurantSeasonal;
   cta: {
     /** The hero's secondary action; the primary action always comes from
      * `getPrimaryConversionCta()` so it can never disagree with the mobile
@@ -139,7 +161,7 @@ export const restaurant: RestaurantConfig = {
     eyebrow: "Mumbai · Est. 2018",
     title: "A table worth gathering around",
     description: "Modern Indian cuisine, rooted in tradition.",
-    image: "/images/hero/aaroh-hero.jpg",
+    image: "/images/hero/aaroh-hero.png",
     imageAlt: "Warm, softly lit dining room at AAROH set for evening service",
   },
   intro: {
@@ -155,8 +177,21 @@ export const restaurant: RestaurantConfig = {
       "AAROH began with a simple idea — that Indian food can honour where it comes from while continuing to evolve.",
       "Every dish draws on technique passed down over generations, reconsidered through a modern lens — in how it's sourced, cooked and served.",
     ],
-    image: "/images/story/aaroh-story.jpg",
+    image: "/images/story/aaroh-story.png",
     imageAlt: "Chef plating a dish in the AAROH kitchen",
+  },
+  seasonal: {
+    eyebrow: "Seasonal",
+    heading: "The Monsoon Table.",
+    description:
+      "A considered menu inspired by the season — warm spices, smoky flavours and ingredients at their best.",
+    price: { amount: 1499, unit: "person" },
+    image: "/images/seasonal/monsoon-table.png",
+    imageAlt: "A seasonal Indian tasting spread styled for the monsoon menu",
+    cta: {
+      mode: "reservation",
+      label: "Reserve the experience",
+    },
   },
   cta: {
     secondary: {

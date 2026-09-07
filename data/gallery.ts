@@ -13,24 +13,24 @@ export interface GalleryImage {
 
 export const gallery: GalleryImage[] = [
   {
-    image: "/images/gallery/dining-room.jpg",
+    image: "/images/gallery/dining-room.png",
     alt: "AAROH dining room",
     caption: "The main dining room",
     category: "interior",
   },
   {
-    image: "/images/gallery/open-kitchen.jpg",
+    image: "/images/gallery/open-kitchen.png",
     alt: "Open-fire kitchen",
     caption: "Our open-fire kitchen",
     category: "ambience",
   },
   {
-    image: "/images/gallery/plated-dish.jpg",
+    image: "/images/gallery/plated-dish.png",
     alt: "Plated signature dish",
     category: "food",
   },
   {
-    image: "/images/gallery/bar.jpg",
+    image: "/images/gallery/bar.png",
     alt: "The bar area",
     category: "interior",
   },

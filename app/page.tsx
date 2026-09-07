@@ -6,6 +6,8 @@ import { SignatureDishes } from "@/components/sections/SignatureDishes";
 import { MenuPreview } from "@/components/sections/MenuPreview";
 import { Story } from "@/components/sections/Story";
 import { Experience } from "@/components/sections/Experience";
+import { SeasonalOffer } from "@/components/sections/SeasonalOffer";
+import { Gallery } from "@/components/sections/Gallery";
 import { MobileStickyCTA } from "@/components/ui/MobileStickyCTA";
 
 export default function Home() {
@@ -19,6 +21,8 @@ export default function Home() {
       <MenuPreview />
       <Story />
       <Experience />
+      <SeasonalOffer />
+      <Gallery />
       <MobileStickyCTA />
     </>
   );
