@@ -11,17 +11,17 @@ export interface Experience {
 export const experiences: Experience[] = [
   {
     title: "Thoughtful Ingredients",
-    description: "Sourced daily from trusted local farms and markets.",
+    description: "Seasonal produce, carefully sourced and treated with respect.",
     icon: "leaf",
   },
   {
     title: "Open-Fire Cooking",
-    description: "Live-fire technique at the heart of every dish.",
+    description: "Smoke, flame and time bring depth to familiar Indian flavours.",
     icon: "flame",
   },
   {
     title: "Warm Hospitality",
-    description: "Service that feels like being welcomed home.",
+    description: "An unhurried table, generous service and a reason to stay awhile.",
     icon: "heart",
   },
 ];

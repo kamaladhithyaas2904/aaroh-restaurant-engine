@@ -22,7 +22,7 @@ export function Navbar() {
       <div className="mx-auto flex max-w-[1600px] items-center justify-between gap-6 px-6 py-6 sm:px-10 md:px-12">
         <Link
           href="/"
-          className="font-heading text-xl uppercase tracking-[0.25em] text-dark-section-foreground sm:text-2xl"
+          className="mix-blend-difference font-heading text-xl uppercase tracking-[0.25em] text-dark-section-foreground sm:text-2xl"
         >
           {restaurant.name}
         </Link>
@@ -32,7 +32,7 @@ export function Navbar() {
             <CtaLink
               key={link.href}
               href={link.href}
-              className="text-xs uppercase tracking-[0.2em] text-dark-section-foreground/85 transition-colors duration-300 hover:text-dark-section-foreground"
+              className="mix-blend-difference text-xs uppercase tracking-[0.2em] text-dark-section-foreground/85 transition-colors duration-300 hover:text-dark-section-foreground"
             >
               {link.label}
             </CtaLink>
@@ -42,14 +42,14 @@ export function Navbar() {
         <div className="hidden items-center gap-6 md:flex">
           <CtaLink
             href={secondaryHref}
-            className="text-xs uppercase tracking-[0.2em] text-dark-section-foreground/70 transition-colors duration-300 hover:text-dark-section-foreground"
+            className="mix-blend-difference text-xs uppercase tracking-[0.2em] text-dark-section-foreground/70 transition-colors duration-300 hover:text-dark-section-foreground"
           >
             {secondaryCta.label}
           </CtaLink>
           {isCtaEnabled(primaryCta.mode) && (
             <CtaLink
               href={primaryHref}
-              className="border border-dark-section-foreground/70 px-6 py-2.5 text-xs uppercase tracking-[0.2em] text-dark-section-foreground transition-colors duration-300 hover:border-dark-section-foreground hover:bg-dark-section-foreground hover:text-dark-section"
+              className="mix-blend-difference border border-dark-section-foreground/70 px-6 py-2.5 text-xs uppercase tracking-[0.2em] text-dark-section-foreground transition-colors duration-300 hover:border-dark-section-foreground hover:bg-dark-section-foreground hover:text-dark-section"
             >
               {primaryCta.label}
             </CtaLink>

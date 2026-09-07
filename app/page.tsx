@@ -4,6 +4,8 @@ import { Intro } from "@/components/sections/Intro";
 import { OpeningHours } from "@/components/sections/OpeningHours";
 import { SignatureDishes } from "@/components/sections/SignatureDishes";
 import { MenuPreview } from "@/components/sections/MenuPreview";
+import { Story } from "@/components/sections/Story";
+import { Experience } from "@/components/sections/Experience";
 import { MobileStickyCTA } from "@/components/ui/MobileStickyCTA";
 
 export default function Home() {
@@ -15,6 +17,8 @@ export default function Home() {
       <OpeningHours />
       <SignatureDishes />
       <MenuPreview />
+      <Story />
+      <Experience />
       <MobileStickyCTA />
     </>
   );

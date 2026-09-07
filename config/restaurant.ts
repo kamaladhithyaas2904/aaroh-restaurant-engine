@@ -56,6 +56,15 @@ export interface RestaurantIntro {
   description: string;
 }
 
+export interface RestaurantStory {
+  eyebrow: string;
+  heading: string;
+  paragraphs: string[];
+  /** Path under `public/` (or a full URL) — see `restaurant.hero.image`. */
+  image: string;
+  imageAlt: string;
+}
+
 export interface RestaurantContact {
   phone: string;
   whatsapp: string;
@@ -87,6 +96,7 @@ export interface RestaurantConfig {
   social: SocialLinks;
   hero: RestaurantHero;
   intro: RestaurantIntro;
+  story: RestaurantStory;
   cta: {
     /** The hero's secondary action; the primary action always comes from
      * `getPrimaryConversionCta()` so it can never disagree with the mobile
@@ -137,6 +147,16 @@ export const restaurant: RestaurantConfig = {
     statement: "Where the familiar meets the unexpected.",
     description:
       "Modern Indian cooking that respects traditional flavours while approaching ingredients, technique and presentation with a contemporary perspective.",
+  },
+  story: {
+    eyebrow: "Rooted in India",
+    heading: "Rooted in India. Made for today.",
+    paragraphs: [
+      "AAROH began with a simple idea — that Indian food can honour where it comes from while continuing to evolve.",
+      "Every dish draws on technique passed down over generations, reconsidered through a modern lens — in how it's sourced, cooked and served.",
+    ],
+    image: "/images/story/aaroh-story.jpg",
+    imageAlt: "Chef plating a dish in the AAROH kitchen",
   },
   cta: {
     secondary: {

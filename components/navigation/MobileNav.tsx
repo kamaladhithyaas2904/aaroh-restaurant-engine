@@ -53,17 +53,17 @@ export function MobileNav() {
         className="relative z-50 flex h-10 w-10 flex-col items-center justify-center gap-[5px]"
       >
         <span
-          className={`h-px w-6 bg-dark-section-foreground transition-transform duration-300 ${
+          className={`mix-blend-difference h-px w-6 bg-dark-section-foreground transition-transform duration-300 ${
             open ? "translate-y-[3.5px] rotate-45" : ""
           }`}
         />
         <span
-          className={`h-px w-6 bg-dark-section-foreground transition-opacity duration-300 ${
+          className={`mix-blend-difference h-px w-6 bg-dark-section-foreground transition-opacity duration-300 ${
             open ? "opacity-0" : "opacity-100"
           }`}
         />
         <span
-          className={`h-px w-6 bg-dark-section-foreground transition-transform duration-300 ${
+          className={`mix-blend-difference h-px w-6 bg-dark-section-foreground transition-transform duration-300 ${
             open ? "-translate-y-[3.5px] -rotate-45" : ""
           }`}
         />
