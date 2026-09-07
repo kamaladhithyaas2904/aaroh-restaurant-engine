@@ -47,6 +47,13 @@ export interface RestaurantLocation {
 export interface RestaurantHours {
   dinner: string;
   kitchen: string;
+  walkIns: string;
+}
+
+export interface RestaurantIntro {
+  eyebrow: string;
+  statement: string;
+  description: string;
 }
 
 export interface RestaurantContact {
@@ -70,6 +77,8 @@ export interface RestaurantConfig {
   descriptor: string;
   establishedYear: number;
   logo: string;
+  /** Symbol prefixed to every price shown on the site (e.g. "₹", "$", "€"). */
+  currency: string;
   tagline: string;
   description: string;
   location: RestaurantLocation;
@@ -77,6 +86,7 @@ export interface RestaurantConfig {
   contact: RestaurantContact;
   social: SocialLinks;
   hero: RestaurantHero;
+  intro: RestaurantIntro;
   cta: {
     /** The hero's secondary action; the primary action always comes from
      * `getPrimaryConversionCta()` so it can never disagree with the mobile
@@ -92,6 +102,7 @@ export const restaurant: RestaurantConfig = {
   descriptor: "Modern Indian Kitchen",
   establishedYear: 2018,
   logo: "/images/logo.svg",
+  currency: "₹",
   tagline: "Modern Indian cuisine, rooted in tradition.",
   description:
     "AAROH is a modern Indian kitchen in Mumbai, serving refined, tradition-rooted cuisine since 2018.",
@@ -104,6 +115,7 @@ export const restaurant: RestaurantConfig = {
   hours: {
     dinner: "6:30 PM — 11:00 PM",
     kitchen: "Open until 10:30 PM",
+    walkIns: "Welcome",
   },
   contact: {
     phone: "+91 90000 00000",
@@ -119,6 +131,12 @@ export const restaurant: RestaurantConfig = {
     description: "Modern Indian cuisine, rooted in tradition.",
     image: "/images/hero/aaroh-hero.jpg",
     imageAlt: "Warm, softly lit dining room at AAROH set for evening service",
+  },
+  intro: {
+    eyebrow: "The Philosophy",
+    statement: "Where the familiar meets the unexpected.",
+    description:
+      "Modern Indian cooking that respects traditional flavours while approaching ingredients, technique and presentation with a contemporary perspective.",
   },
   cta: {
     secondary: {

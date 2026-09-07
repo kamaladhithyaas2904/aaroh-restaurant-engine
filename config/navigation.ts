@@ -23,6 +23,10 @@ export interface NavigationConfig {
   links: NavigationLink[];
   primaryCta: NavigationCta;
   secondaryCta: NavigationCta;
+  /** Destination for the homepage's "View Full Menu" CTA. Points at a
+   * standalone menu page that doesn't exist yet — kept here rather than
+   * hardcoded so it's easy to find and update once that page is built. */
+  fullMenuHref: string;
 }
 
 export const navigation: NavigationConfig = {
@@ -40,4 +44,5 @@ export const navigation: NavigationConfig = {
     mode: "whatsapp",
     label: "WhatsApp",
   },
+  fullMenuHref: "/menu",
 };
