@@ -23,15 +23,15 @@ export interface NavigationConfig {
   links: NavigationLink[];
   primaryCta: NavigationCta;
   secondaryCta: NavigationCta;
-  /** Destination for the homepage's "View Full Menu" CTA. Points at a
-   * standalone menu page that doesn't exist yet — kept here rather than
-   * hardcoded so it's easy to find and update once that page is built. */
+  /** Destination for the homepage's "View Full Menu" CTA (same page as the
+   * "Menu" nav link above) — kept here rather than hardcoded so it's a
+   * single place to update if the route ever changes. */
   fullMenuHref: string;
 }
 
 export const navigation: NavigationConfig = {
   links: [
-    { label: "Menu", href: "/#menu" },
+    { label: "Menu", href: "/menu" },
     { label: "Our Story", href: "/#story" },
     { label: "Gallery", href: "/#gallery" },
     { label: "Visit", href: "/#visit" },

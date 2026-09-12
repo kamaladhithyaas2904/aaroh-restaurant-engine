@@ -1,34 +1,24 @@
 import { restaurant } from "@/config/restaurant";
 import { navigation } from "@/config/navigation";
-import { menu, type MenuCategory, type MenuItem } from "@/data/menu";
+import { menu, type MenuItem } from "@/data/menu";
 import { CtaLink } from "@/components/ui/CtaLink";
 import { motionDelayClass } from "@/components/ui/motion";
 
 /**
- * One representative item per category present in `data/menu.ts` (the
- * category's featured item if it has one, otherwise its first item) — a
- * curated preview rather than the full menu dump. Purely derived from the
- * data layer, so it adapts automatically to whatever categories/items a
- * client's menu actually has.
+ * One representative item per category in `data/menu.ts` (the category's
+ * featured item if it has one, otherwise its first item) — a curated
+ * preview rather than the full menu dump. Purely derived from the data
+ * layer, so it adapts automatically to whatever categories/items a client's
+ * menu actually has. The complete menu lives at `/menu`.
  */
 function getCuratedSelection(): MenuItem[] {
-  const orderedCategories: MenuCategory[] = [];
-  for (const item of menu) {
-    if (!orderedCategories.includes(item.category)) {
-      orderedCategories.push(item.category);
-    }
-  }
-
-  return orderedCategories.map((category) => {
-    const itemsInCategory = menu.filter((item) => item.category === category);
-    return itemsInCategory.find((item) => item.featured) ?? itemsInCategory[0];
-  });
+  return menu
+    .map((category) => category.items.find((item) => item.featured) ?? category.items[0])
+    .filter((item): item is MenuItem => item !== undefined);
 }
 
 function dietaryNote(item: MenuItem): string {
-  return [item.vegetarian ? "Veg" : null, item.spicy ? "Spicy" : null]
-    .filter(Boolean)
-    .join(" · ");
+  return (item.dietaryTags ?? []).join(" · ");
 }
 
 export function MenuPreview() {
@@ -50,7 +40,7 @@ export function MenuPreview() {
         <ul className="mt-16 divide-y divide-border">
           {selection.map((item, index) => (
             <li
-              key={item.name}
+              key={item.id}
               className={`motion-fade-up flex flex-col gap-2 py-6 first:pt-0 sm:flex-row sm:items-baseline sm:justify-between sm:gap-8 ${motionDelayClass(index)}`}
             >
               <div className="flex flex-col gap-1">
@@ -68,12 +58,12 @@ export function MenuPreview() {
                   {item.description}
                 </p>
                 {item.allergens && item.allergens.length > 0 && (
-                  <p className="text-xs text-muted/70">
+                  <p className="text-xs text-muted">
                     Contains {item.allergens.join(", ")}
                   </p>
                 )}
               </div>
-              <span className="font-heading text-lg text-accent sm:text-xl">
+              <span className="font-heading text-lg font-semibold text-accent sm:text-xl">
                 {restaurant.currency}
                 {item.price}
               </span>

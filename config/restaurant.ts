@@ -65,6 +65,12 @@ export interface RestaurantStory {
   imageAlt: string;
 }
 
+export interface RestaurantMenuPage {
+  eyebrow: string;
+  heading: string;
+  description: string;
+}
+
 export interface SeasonalPrice {
   amount: number;
   /** e.g. "person" — combined with `restaurant.currency` and `amount` as
@@ -119,6 +125,7 @@ export interface RestaurantConfig {
   intro: RestaurantIntro;
   story: RestaurantStory;
   seasonal: RestaurantSeasonal;
+  menuPage: RestaurantMenuPage;
   cta: {
     /** The hero's secondary action; the primary action always comes from
      * `getPrimaryConversionCta()` so it can never disagree with the mobile
@@ -193,11 +200,16 @@ export const restaurant: RestaurantConfig = {
       label: "Reserve the experience",
     },
   },
+  menuPage: {
+    eyebrow: "Full Menu",
+    heading: "The Menu",
+    description: "A modern expression of Indian cuisine.",
+  },
   cta: {
     secondary: {
       mode: "link",
       label: "Explore Menu",
-      href: "/#menu",
+      href: "/menu",
     },
   },
   reservation: {
