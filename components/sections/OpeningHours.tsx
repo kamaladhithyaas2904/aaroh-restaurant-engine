@@ -16,16 +16,16 @@ export function OpeningHours() {
   ];
 
   return (
-    <section className="bg-dark-section px-6 py-24 text-dark-section-foreground sm:px-10 md:px-16 md:py-32">
+    <section className="bg-dark-section px-6 py-18 text-dark-section-foreground sm:px-10 md:px-16 md:py-24">
       <div className="mx-auto max-w-6xl">
         <p className="motion-fade-up text-xs uppercase tracking-[0.3em] text-dark-section-foreground/70 sm:text-sm">
           Hours
         </p>
-        <h2 className="motion-fade-up motion-delay-1 mt-4 text-balance font-heading text-[clamp(2.25rem,4vw+1rem,3.75rem)] leading-[1.05]">
+        <h2 className="motion-fade-up motion-delay-1 mt-3 text-balance font-heading text-[clamp(2.25rem,4vw+1rem,3.75rem)] leading-[1.05]">
           Tonight at {restaurant.name}
         </h2>
 
-        <div className="mt-16 grid divide-y divide-dark-section-foreground/15 sm:grid-cols-3 sm:divide-x sm:divide-y-0">
+        <div className="mt-12 grid divide-y divide-dark-section-foreground/15 sm:grid-cols-3 sm:divide-x sm:divide-y-0">
           {columns.map((column, index) => (
             <div
               key={column.label}

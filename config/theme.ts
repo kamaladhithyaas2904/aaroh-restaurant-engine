@@ -28,7 +28,11 @@ export const theme: Theme = {
   colors: {
     background: "#F4F0E8",
     foreground: "#171612",
-    muted: "#6E6A61",
+    /** Deepened from the original #6E6A61 (~4.7:1 against `background`, only
+     * marginally WCAG AA) to ~6.4:1 — still a warm gray, not a step toward
+     * black, but with real headroom for the small uppercase labels/body copy
+     * that lean on this token throughout the light sections. */
+    muted: "#5A564D",
     accent: "#9A6A3A",
     border: "#E4DFD2",
     surface: "#FFFFFF",

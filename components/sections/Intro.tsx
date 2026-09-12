@@ -9,7 +9,7 @@ export function Intro() {
   const { eyebrow, statement, description } = restaurant.intro;
 
   return (
-    <section className="bg-background px-6 py-24 text-foreground sm:px-10 md:px-16 md:py-32">
+    <section className="bg-background px-6 py-18 text-foreground sm:px-10 md:px-16 md:py-24">
       <div className="mx-auto grid max-w-6xl gap-10 md:grid-cols-12 md:gap-x-8">
         <p className="motion-fade-up text-xs uppercase tracking-[0.3em] text-muted md:col-span-12">
           {eyebrow}

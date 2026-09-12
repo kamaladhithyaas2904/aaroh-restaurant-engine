@@ -38,6 +38,8 @@ export interface SocialLinks {
 }
 
 export interface RestaurantLocation {
+  eyebrow: string;
+  heading: string;
   address: string;
   city: string;
   state: string;
@@ -146,6 +148,8 @@ export const restaurant: RestaurantConfig = {
   description:
     "AAROH is a modern Indian kitchen in Mumbai, serving refined, tradition-rooted cuisine since 2018.",
   location: {
+    eyebrow: "Come Find Us",
+    heading: "An evening worth making your way across town for.",
     address: "12 MG Road, Mumbai, Maharashtra",
     city: "Mumbai",
     state: "Maharashtra",
@@ -260,9 +264,10 @@ export function isCtaEnabled(mode: CtaMode): boolean {
 /**
  * The restaurant's main conversion action: ordering takes priority when
  * enabled, otherwise reservation, otherwise a WhatsApp fallback (always
- * available since every restaurant has a contact number). Both the Hero's
- * primary CTA and the mobile sticky CTA call this — a single source of
- * truth so they can never disagree about which action is "primary".
+ * available since every restaurant has a contact number). The Hero's
+ * primary CTA, the mobile sticky CTA, and the homepage's `ReservationCTA`
+ * all call this — a single source of truth so none of them can disagree
+ * about which action is "primary".
  */
 export function getPrimaryConversionCta(): {
   mode: CtaMode;

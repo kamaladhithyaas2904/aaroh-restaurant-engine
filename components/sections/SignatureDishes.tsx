@@ -36,7 +36,7 @@ export function SignatureDishes() {
               </div>
               <div className="flex items-baseline justify-between gap-4 border-t border-border pt-4">
                 <h3 className="font-heading text-xl">{dish.name}</h3>
-                <span className="font-heading text-xl text-accent">
+                <span className="font-heading text-xl font-semibold text-accent">
                   {restaurant.currency}
                   {dish.price}
                 </span>
