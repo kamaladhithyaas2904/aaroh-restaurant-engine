@@ -8,6 +8,10 @@ import { Story } from "@/components/sections/Story";
 import { Experience } from "@/components/sections/Experience";
 import { SeasonalOffer } from "@/components/sections/SeasonalOffer";
 import { Gallery } from "@/components/sections/Gallery";
+import { Testimonials } from "@/components/sections/Testimonials";
+import { ReservationCTA } from "@/components/sections/ReservationCTA";
+import { Location } from "@/components/sections/Location";
+import { Footer } from "@/components/footer/Footer";
 import { MobileStickyCTA } from "@/components/ui/MobileStickyCTA";
 
 export default function Home() {
@@ -23,6 +27,10 @@ export default function Home() {
       <Experience />
       <SeasonalOffer />
       <Gallery />
+      <Testimonials />
+      <ReservationCTA />
+      <Location />
+      <Footer />
       <MobileStickyCTA />
     </>
   );
