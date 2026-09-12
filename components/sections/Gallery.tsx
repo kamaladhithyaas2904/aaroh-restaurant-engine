@@ -60,7 +60,10 @@ export function Gallery() {
   if (!dominant) return null;
 
   return (
-    <section className="bg-background px-6 py-24 text-foreground sm:px-10 md:px-16 md:py-32">
+    <section
+      id="gallery"
+      className="bg-background px-6 py-24 text-foreground sm:px-10 md:px-16 md:py-32"
+    >
       <div className="mx-auto max-w-6xl">
         <p className="motion-fade-up text-xs uppercase tracking-[0.3em] text-muted">
           Gallery

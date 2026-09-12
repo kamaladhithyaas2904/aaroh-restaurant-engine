@@ -11,7 +11,10 @@ export function Story() {
   const { eyebrow, heading, paragraphs, image, imageAlt } = restaurant.story;
 
   return (
-    <section className="bg-background px-6 py-24 text-foreground sm:px-10 md:px-16 md:py-32">
+    <section
+      id="story"
+      className="bg-background px-6 py-24 text-foreground sm:px-10 md:px-16 md:py-32"
+    >
       <div className="mx-auto grid max-w-6xl gap-12 md:grid-cols-12 md:gap-x-10">
         <div className="relative aspect-[4/5] overflow-hidden md:col-span-7">
           <ImageOrPlaceholder
@@ -38,7 +41,7 @@ export function Story() {
               </p>
             ))}
           </div>
-          <p className="motion-fade-up motion-delay-2 text-xs uppercase tracking-[0.25em] text-muted/70">
+          <p className="motion-fade-up motion-delay-2 text-xs uppercase tracking-[0.25em] text-muted">
             Est. {restaurant.establishedYear} · {restaurant.location.city}
           </p>
         </div>
