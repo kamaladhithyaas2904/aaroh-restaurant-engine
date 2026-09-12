@@ -19,6 +19,18 @@ export function Navbar() {
 
   return (
     <header className="motion-fade fixed inset-x-0 top-0 z-50">
+      {/* Mix-blend-difference inverts cleanly against the site's flat brand
+          colors (dark-section/background are literal negatives of each
+          other's foreground) but can wash out over a busy, midtone photo —
+          exactly the warm, candlelit range this site's imagery lives in. A
+          faint, permanent scrim confined to the header's own band keeps the
+          backdrop it inverts against predictable without touching the
+          blend system or changing how it already reads over flat sections
+          and the dark hero. */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/15 to-transparent"
+      />
       <div className="mx-auto flex max-w-[1600px] items-center justify-between gap-6 px-6 py-6 sm:px-10 md:px-12">
         <Link
           href="/"

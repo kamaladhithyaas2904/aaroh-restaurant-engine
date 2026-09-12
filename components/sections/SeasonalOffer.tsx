@@ -28,7 +28,7 @@ export function SeasonalOffer() {
           />
         </div>
 
-        <div className="flex flex-col gap-6 md:col-span-5 md:col-start-1 md:mt-16">
+        <div className="flex flex-col gap-7 md:col-span-5 md:col-start-1 md:mt-16">
           <p className="motion-fade-up text-xs uppercase tracking-[0.3em] text-dark-section-foreground/70">
             {eyebrow}
           </p>
@@ -38,21 +38,27 @@ export function SeasonalOffer() {
           <p className="motion-fade-up motion-delay-2 max-w-sm text-base text-dark-section-foreground/80 sm:text-lg">
             {description}
           </p>
-          <p className="motion-fade-up motion-delay-2 font-heading text-2xl text-accent">
-            {restaurant.currency}
-            {price.amount}{" "}
-            <span className="text-base uppercase tracking-[0.15em] text-dark-section-foreground/60">
-              / {price.unit}
-            </span>
-          </p>
-          {isCtaEnabled(cta.mode) && (
-            <CtaLink
-              href={ctaHref}
-              className="motion-fade-up motion-delay-3 inline-flex w-fit items-center justify-center border border-dark-section-foreground/70 px-8 py-3.5 text-sm uppercase tracking-[0.15em] text-dark-section-foreground transition-colors duration-300 hover:border-dark-section-foreground hover:bg-dark-section-foreground hover:text-dark-section"
-            >
-              {cta.label}
-            </CtaLink>
-          )}
+
+          {/* Presented like a printed menu line — a thin rule sets the price
+              apart as the section's second focal point, without resorting
+              to a badge or card. */}
+          <div className="motion-fade-up motion-delay-2 flex flex-col gap-4 border-t border-dark-section-foreground/20 pt-6">
+            <p className="font-heading text-3xl text-accent sm:text-4xl">
+              {restaurant.currency}
+              {price.amount}
+              <span className="ml-3 font-body text-xs uppercase tracking-[0.25em] text-dark-section-foreground/55">
+                / {price.unit}
+              </span>
+            </p>
+            {isCtaEnabled(cta.mode) && (
+              <CtaLink
+                href={ctaHref}
+                className="motion-fade-up motion-delay-3 inline-flex w-fit items-center justify-center border border-dark-section-foreground/70 px-8 py-3.5 text-sm uppercase tracking-[0.15em] text-dark-section-foreground transition-colors duration-300 hover:border-dark-section-foreground hover:bg-dark-section-foreground hover:text-dark-section"
+              >
+                {cta.label}
+              </CtaLink>
+            )}
+          </div>
         </div>
       </div>
     </section>

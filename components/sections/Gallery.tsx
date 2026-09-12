@@ -7,6 +7,10 @@ interface GalleryFrameProps {
   aspect: string;
   gridClassName?: string;
   motionClassName?: string;
+  /** Lets the dominant frame's caption read with more presence than the
+   * supporting frames', reinforcing it as the lead image rather than just
+   * another grid cell. */
+  captionClassName?: string;
 }
 
 function GalleryFrame({
@@ -14,6 +18,7 @@ function GalleryFrame({
   aspect,
   gridClassName,
   motionClassName,
+  captionClassName,
 }: GalleryFrameProps) {
   return (
     <figure className={`group flex flex-col gap-3 ${gridClassName ?? ""} ${motionClassName ?? ""}`}>
@@ -26,7 +31,12 @@ function GalleryFrame({
         />
       </div>
       {item.caption && (
-        <figcaption className="text-xs uppercase tracking-[0.2em] text-muted">
+        <figcaption
+          className={
+            captionClassName ??
+            "text-xs uppercase tracking-[0.2em] text-muted"
+          }
+        >
           {item.caption}
         </figcaption>
       )}
@@ -65,6 +75,7 @@ export function Gallery() {
             aspect="aspect-[4/5]"
             gridClassName="md:col-span-7 md:row-span-2"
             motionClassName="motion-fade-up"
+            captionClassName="font-heading text-lg italic text-foreground/80"
           />
           {supporting.slice(0, 2).map((item, index) => (
             <GalleryFrame

@@ -27,11 +27,13 @@ export const gallery: GalleryImage[] = [
   {
     image: "/images/gallery/plated-dish.png",
     alt: "Plated signature dish",
+    caption: "A seasonal dessert",
     category: "food",
   },
   {
     image: "/images/gallery/bar.png",
     alt: "The bar area",
+    caption: "The bar, after dark",
     category: "interior",
   },
 ];
