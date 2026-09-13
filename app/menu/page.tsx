@@ -19,7 +19,7 @@ function dietaryNote(tags?: string[]): string {
 export default function MenuPage() {
   return (
     <>
-      <Navbar />
+      <Navbar variant="light" />
       <main className="bg-background px-6 pb-24 pt-32 text-foreground sm:px-10 md:px-16 md:pb-32">
         <div className="mx-auto max-w-3xl">
           <header className="flex flex-col items-center gap-4 text-center">

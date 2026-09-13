@@ -6,14 +6,27 @@ import { navigation } from "@/config/navigation";
 import { isCtaEnabled, resolveCtaHref } from "@/config/restaurant";
 import { CtaLink } from "@/components/ui/CtaLink";
 
+interface MobileNavProps {
+  /** Current navbar theme, computed by `Navbar` (statically for
+   * `variant="light"`, dynamically from what's scrolled behind it for
+   * `variant="auto"`). Defaults to the dark-context bar color. */
+  isLight?: boolean;
+}
+
 /**
  * Mobile-only nav trigger + full-screen panel. This is the one navigation
  * piece that needs client interactivity (open/close state); the rest of the
  * navigation stays server-rendered.
  */
-export function MobileNav() {
+export function MobileNav({ isLight = false }: MobileNavProps) {
   const [open, setOpen] = useState(false);
   const panelId = useId();
+
+  // The open panel is always a solid dark overlay (see below), so the
+  // trigger's bar color has to track that too, not just `isLight`: dark bars
+  // only while closed over a light section, light bars everywhere else
+  // (dark sections, and the open panel itself).
+  const barColorClass = !isLight || open ? "bg-dark-section-foreground" : "bg-foreground";
 
   useEffect(() => {
     if (!open) return;
@@ -53,17 +66,17 @@ export function MobileNav() {
         className="relative z-50 flex h-10 w-10 flex-col items-center justify-center gap-[5px]"
       >
         <span
-          className={`mix-blend-difference h-px w-6 bg-dark-section-foreground transition-transform duration-300 ${
+          className={`h-px w-6 transition-transform duration-300 ${barColorClass} ${
             open ? "translate-y-[3.5px] rotate-45" : ""
           }`}
         />
         <span
-          className={`mix-blend-difference h-px w-6 bg-dark-section-foreground transition-opacity duration-300 ${
+          className={`h-px w-6 transition-opacity duration-300 ${barColorClass} ${
             open ? "opacity-0" : "opacity-100"
           }`}
         />
         <span
-          className={`mix-blend-difference h-px w-6 bg-dark-section-foreground transition-transform duration-300 ${
+          className={`h-px w-6 transition-transform duration-300 ${barColorClass} ${
             open ? "-translate-y-[3.5px] -rotate-45" : ""
           }`}
         />
