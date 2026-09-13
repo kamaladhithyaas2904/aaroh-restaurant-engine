@@ -1,27 +1,18 @@
-import fs from "node:fs";
-import path from "node:path";
 import Image from "next/image";
 import { restaurant } from "@/config/restaurant";
+import { isLocalImageAvailable } from "@/components/ui/ImageOrPlaceholder";
 import { HeroCTA } from "./HeroCTA";
-
-/**
- * `restaurant.hero.image` is expected to live under `public/`. Until a real
- * photograph is dropped in at that path, we render a tasteful gradient in
- * its place instead of a broken image — no component change is needed once
- * the file exists.
- */
-function heroImageIsAvailable(src: string): boolean {
-  if (/^https?:\/\//.test(src)) return true;
-  try {
-    return fs.existsSync(path.join(process.cwd(), "public", src));
-  } catch {
-    return false;
-  }
-}
 
 export function Hero() {
   const { eyebrow, title, description, image, imageAlt } = restaurant.hero;
-  const hasImage = heroImageIsAvailable(image);
+  // `restaurant.hero.image` is expected to live under `public/`. Until a
+  // real photograph is dropped in at that path, we render a tasteful
+  // gradient in its place instead of a broken image — no component change
+  // is needed once the file exists. Not `ImageOrPlaceholder` itself: its
+  // monogram placeholder would collide with the hero's large title text, so
+  // this section keeps its own plain-gradient placeholder while sharing the
+  // same underlying existence check.
+  const hasImage = isLocalImageAvailable(image);
 
   return (
     <section className="relative flex min-h-[100svh] w-full flex-col overflow-hidden bg-dark-section text-dark-section-foreground">

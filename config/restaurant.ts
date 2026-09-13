@@ -122,6 +122,11 @@ export interface RestaurantConfig {
   name: string;
   descriptor: string;
   establishedYear: number;
+  /** Optional image wordmark, shown in the Navbar and Footer in place of
+   * the text brand name. Path under `public/` (or a full URL), same
+   * convention as `hero.image`. Omit to keep the default text wordmark —
+   * most clients don't need this. */
+  logoImage?: string;
   /** Symbol prefixed to every price shown on the site (e.g. "₹", "$", "€"). */
   currency: string;
   tagline: string;
@@ -203,7 +208,7 @@ export const restaurant: RestaurantConfig = {
     description:
       "A considered tasting menu inspired by the monsoon coastline — fresh catch, coconut, kokum and green mango, at their peak.",
     price: { amount: 2400, unit: "person" },
-    image: "/images/noor/seasonal-coastal-table.png",
+    image: "/images/noor/seasonal.png",
     imageAlt: "A coastal Indian tasting spread styled for NOOR's seasonal menu",
     cta: {
       mode: "reservation",

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Navbar } from "@/components/navigation/Navbar";
 import { CtaLink } from "@/components/ui/CtaLink";
+import { telHref as buildTelHref } from "@/components/ui/phone";
 import { resolveCtaHref, restaurant } from "@/config/restaurant";
 
 export const metadata: Metadata = {
@@ -15,7 +16,7 @@ export const metadata: Metadata = {
 // without touching any other route.
 export default function ReservePage() {
   const whatsappHref = resolveCtaHref("whatsapp");
-  const telHref = `tel:${restaurant.contact.phone.replace(/[^\d+]/g, "")}`;
+  const telHref = buildTelHref(restaurant.contact.phone);
 
   return (
     <>

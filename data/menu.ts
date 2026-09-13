@@ -19,6 +19,15 @@ export interface MenuItem {
   dietaryTags?: string[];
   allergens?: string[];
   featured?: boolean;
+  /** When set, this item also appears in the homepage's image-led
+   * "Signatures" grid (`components/sections/SignatureDishes.tsx`) — the
+   * only place on the site a menu item needs a photo. Independent of
+   * `featured`, which instead drives the homepage's per-category menu
+   * preview (`components/sections/MenuPreview.tsx`). */
+  signature?: {
+    image: string;
+    imageAlt: string;
+  };
 }
 
 export interface MenuCategory {
@@ -42,6 +51,10 @@ export const menu: MenuCategory[] = [
         description: "Char-grilled tiger prawns, kokum glaze, curry leaf oil",
         price: 495,
         allergens: ["shellfish"],
+        signature: {
+          image: "/images/noor/dishes/kokum-prawns.png",
+          imageAlt: "Char-grilled tiger prawns finished with kokum glaze",
+        },
       },
       {
         id: "banana-leaf-fish-tikka",
@@ -79,6 +92,10 @@ export const menu: MenuCategory[] = [
         price: 625,
         allergens: ["fish"],
         featured: true,
+        signature: {
+          image: "/images/noor/dishes/goan-fish-curry.png",
+          imageAlt: "Goan fish curry plated with coconut and fresh curry leaves",
+        },
       },
       {
         id: "malabar-crab-masala",
@@ -101,6 +118,10 @@ export const menu: MenuCategory[] = [
         price: 1450,
         allergens: ["shellfish"],
         featured: true,
+        signature: {
+          image: "/images/noor/dishes/tandoori-lobster.png",
+          imageAlt: "Charcoal-grilled whole lobster finished with coastal spice",
+        },
       },
     ],
   },

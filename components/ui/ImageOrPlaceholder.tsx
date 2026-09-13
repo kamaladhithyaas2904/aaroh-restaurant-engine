@@ -2,7 +2,14 @@ import fs from "node:fs";
 import path from "node:path";
 import Image from "next/image";
 
-function isLocalImageAvailable(src: string): boolean {
+/**
+ * Whether `src` (a `public/`-relative path, or a full URL) resolves to a
+ * real file — the shared check behind this component's own placeholder
+ * fallback, and reused by `Hero` for its own distinct placeholder (a plain
+ * gradient, not this component's monogram, since a monogram would collide
+ * with the hero's large title text).
+ */
+export function isLocalImageAvailable(src: string): boolean {
   if (/^https?:\/\//.test(src)) return true;
   try {
     return fs.existsSync(path.join(process.cwd(), "public", src));

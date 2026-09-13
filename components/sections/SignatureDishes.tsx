@@ -1,13 +1,29 @@
 import { restaurant } from "@/config/restaurant";
-import { dishes } from "@/data/dishes";
+import { menu, type MenuItem } from "@/data/menu";
 import { ImageOrPlaceholder } from "@/components/ui/ImageOrPlaceholder";
 import { motionDelayClass } from "@/components/ui/motion";
 
+type SignatureDish = MenuItem & { signature: NonNullable<MenuItem["signature"]> };
+
 /**
- * Image-led editorial grid. Dish data comes entirely from `data/dishes.ts`
- * — nothing here is duplicated or hardcoded per-dish.
+ * The menu items marked `signature` in `data/menu.ts`, in menu order —
+ * `data/menu.ts` is the only source of truth for dish name/price/
+ * description/tags; this file only supplies the photo those items don't
+ * otherwise need.
+ */
+function getSignatureDishes(): SignatureDish[] {
+  return menu
+    .flatMap((category) => category.items)
+    .filter((item): item is SignatureDish => item.signature != null);
+}
+
+/**
+ * Image-led editorial grid, sourced from `data/menu.ts`'s `signature`-marked
+ * items — nothing here is duplicated or hardcoded per-dish.
  */
 export function SignatureDishes() {
+  const dishes = getSignatureDishes();
+
   return (
     <section className="bg-background px-6 py-24 text-foreground sm:px-10 md:px-16 md:py-32">
       <div className="mx-auto max-w-6xl">
@@ -23,13 +39,13 @@ export function SignatureDishes() {
         <div className="mt-16 grid gap-12 md:grid-cols-3 md:gap-8">
           {dishes.map((dish, index) => (
             <article
-              key={dish.name}
+              key={dish.id}
               className={`motion-fade-up group flex flex-col gap-4 ${motionDelayClass(index)}`}
             >
               <div className="relative aspect-[4/5] overflow-hidden">
                 <ImageOrPlaceholder
-                  src={dish.image}
-                  alt={dish.imageAlt}
+                  src={dish.signature.image}
+                  alt={dish.signature.imageAlt}
                   sizes="(min-width: 768px) 33vw, 100vw"
                   className="transition-transform duration-700 ease-out group-hover:scale-105"
                 />

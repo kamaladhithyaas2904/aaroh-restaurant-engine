@@ -1,5 +1,6 @@
 import { restaurant } from "@/config/restaurant";
 import { CtaLink } from "@/components/ui/CtaLink";
+import { telHref as buildTelHref } from "@/components/ui/phone";
 
 /**
  * Editorial location section. Reuses `restaurant.location` (address/map),
@@ -9,7 +10,7 @@ import { CtaLink } from "@/components/ui/CtaLink";
  */
 export function Location() {
   const { eyebrow, heading, address, mapUrl } = restaurant.location;
-  const telHref = `tel:${restaurant.contact.phone.replace(/[^\d+]/g, "")}`;
+  const telHref = buildTelHref(restaurant.contact.phone);
 
   return (
     <section

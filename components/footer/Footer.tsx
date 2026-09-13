@@ -1,5 +1,7 @@
 import { restaurant } from "@/config/restaurant";
 import { CtaLink } from "@/components/ui/CtaLink";
+import { BrandMark } from "@/components/ui/BrandMark";
+import { telHref as buildTelHref } from "@/components/ui/phone";
 
 /**
  * Site footer. Every value comes from `config/restaurant.ts` — name,
@@ -9,7 +11,7 @@ import { CtaLink } from "@/components/ui/CtaLink";
  * already uses for its own bottom content.
  */
 export function Footer() {
-  const telHref = `tel:${restaurant.contact.phone.replace(/[^\d+]/g, "")}`;
+  const telHref = buildTelHref(restaurant.contact.phone);
   const instagramHandle = restaurant.social.instagram?.replace(/^@/, "");
   const year = new Date().getFullYear();
 
@@ -22,7 +24,7 @@ export function Footer() {
               href="/"
               className="w-fit font-heading text-2xl uppercase tracking-[0.2em]"
             >
-              {restaurant.name}
+              <BrandMark />
             </CtaLink>
             <p className="max-w-xs text-sm text-dark-section-foreground/70">
               {restaurant.tagline}

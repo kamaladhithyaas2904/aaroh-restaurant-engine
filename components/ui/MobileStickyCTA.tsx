@@ -20,12 +20,11 @@ const CTA_MODE_LABEL: Record<CtaMode, string> = {
  */
 export function MobileStickyCTA() {
   const primary = getPrimaryConversionCta();
-  const menuLink = navigation.links.find((link) => link.label === "Menu");
 
   return (
     <div className="fixed inset-x-0 bottom-0 z-40 flex border-t border-border bg-surface/95 pb-[env(safe-area-inset-bottom)] backdrop-blur-sm md:hidden">
       <CtaLink
-        href={menuLink?.href ?? "/#menu"}
+        href={navigation.fullMenuHref}
         className="flex-1 border-r border-border py-4 text-center text-xs uppercase tracking-[0.2em] text-foreground"
       >
         View Menu

@@ -3,8 +3,9 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { navigation } from "@/config/navigation";
-import { isCtaEnabled, resolveCtaHref, restaurant } from "@/config/restaurant";
+import { isCtaEnabled, resolveCtaHref } from "@/config/restaurant";
 import { CtaLink } from "@/components/ui/CtaLink";
+import { BrandMark } from "@/components/ui/BrandMark";
 import { MobileNav } from "./MobileNav";
 
 /**
@@ -98,7 +99,7 @@ export function Navbar({ variant = "auto" }: NavbarProps) {
             isLight ? "text-foreground" : "text-dark-section-foreground"
           }`}
         >
-          {restaurant.name}
+          <BrandMark />
         </Link>
 
         <nav aria-label="Primary" className="hidden items-center gap-10 md:flex">
