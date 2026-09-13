@@ -12,27 +12,27 @@ export interface Review {
 
 export const reviews: Review[] = [
   {
-    name: "Ananya Rao",
+    name: "Rhea Kapoor",
     rating: 5,
     review:
-      "The butter chicken alone is worth the trip. Warm service, beautiful room.",
+      "The Goan fish curry is extraordinary — easily the best coastal food I've had in Mumbai. Beautiful room, warm service.",
     source: "Google",
-    date: "2024-11-02",
+    date: "2026-06-02",
   },
   {
-    name: "Vikram Shah",
+    name: "Arjun Mehta",
     rating: 5,
     review:
-      "Best modern Indian food in Mumbai right now. The truffle mushroom is unreal.",
+      "The tandoori lobster alone is worth the reservation. NOOR has redefined coastal dining in the city.",
     source: "Zomato",
-    date: "2024-09-18",
+    date: "2026-04-18",
   },
   {
-    name: "Meera Iyer",
+    name: "Simran Kaur",
     rating: 4,
     review:
-      "Lovely evening — great cocktails, attentive staff, will be back for the prawn curry.",
+      "Lovely evening — the kokum cooler and crab masala were standouts. Will be back for the seasonal tasting menu.",
     source: "Google",
-    date: "2024-08-30",
+    date: "2026-02-27",
   },
 ];

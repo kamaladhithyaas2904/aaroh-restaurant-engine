@@ -14,27 +14,27 @@ export interface SignatureDish {
 
 export const dishes: SignatureDish[] = [
   {
-    name: "Butter Chicken",
+    name: "Goan Fish Curry",
+    price: 625,
+    description: "Catch of the day, coconut, kokum, red chilli",
+    image: "/images/dishes/noor/goan-fish-curry.png",
+    imageAlt: "Goan fish curry plated with coconut and fresh curry leaves",
+    featured: true,
+  },
+  {
+    name: "Tandoori Lobster",
+    price: 1450,
+    description: "Whole lobster, coastal spice, charcoal-grilled",
+    image: "/images/dishes/noor/tandoori-lobster.png",
+    imageAlt: "Charcoal-grilled whole lobster finished with coastal spice",
+    featured: true,
+  },
+  {
+    name: "Kokum-Glazed Prawns",
     price: 495,
-    description: "Slow-cooked tomato gravy, charcoal butter, fenugreek",
-    image: "/images/dishes/butter-chicken.png",
-    imageAlt: "Butter chicken in a copper handi, finished with cream and coriander",
-    featured: true,
-  },
-  {
-    name: "Truffle Malai Mushroom",
-    price: 425,
-    description: "Wild mushrooms, saffron cream, black truffle",
-    image: "/images/dishes/mushroom.png",
-    imageAlt: "Wild mushrooms in saffron cream, shaved black truffle on top",
-    featured: true,
-  },
-  {
-    name: "Saffron Prawn",
-    price: 595,
-    description: "Coastal prawn curry, saffron, coconut",
-    image: "/images/dishes/prawn.png",
-    imageAlt: "Saffron prawn curry plated with coconut and fresh curry leaves",
+    description: "Char-grilled tiger prawns, kokum glaze, curry leaf oil",
+    image: "/images/dishes/noor/kokum-prawns.png",
+    imageAlt: "Char-grilled tiger prawns finished with kokum glaze",
     featured: true,
   },
 ];

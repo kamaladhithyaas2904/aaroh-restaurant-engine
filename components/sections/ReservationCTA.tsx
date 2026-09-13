@@ -1,4 +1,4 @@
-import { getPrimaryConversionCta, resolveCtaHref } from "@/config/restaurant";
+import { getPrimaryConversionCta, resolveCtaHref, restaurant } from "@/config/restaurant";
 import { CtaLink } from "@/components/ui/CtaLink";
 
 /**
@@ -22,8 +22,7 @@ export function ReservationCTA() {
           Your table is waiting.
         </h2>
         <p className="motion-fade-up motion-delay-2 max-w-md text-base text-dark-section-foreground/80 sm:text-lg">
-          Join us for an evening of modern Indian cooking, warm hospitality
-          and good company.
+          {restaurant.reservation.description}
         </p>
 
         <div className="motion-fade-up motion-delay-3 mt-4 flex flex-col gap-4 sm:flex-row sm:items-center">

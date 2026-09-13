@@ -24,6 +24,10 @@ export interface ReservationConfig {
   enabled: boolean;
   label: string;
   href: string;
+  /** Brand copy for the homepage's `ReservationCTA` section — distinct from
+   * `restaurant.description` (used for page metadata) so each has its own
+   * source instead of one field serving two unrelated purposes. */
+  description: string;
 }
 
 export interface OrderingConfig {
@@ -71,6 +75,10 @@ export interface RestaurantMenuPage {
   eyebrow: string;
   heading: string;
   description: string;
+  /** Brand copy for the homepage's `MenuPreview` section heading — distinct
+   * from `restaurant.tagline` (used in the footer) so each has its own
+   * source instead of one field serving two unrelated purposes. */
+  previewHeading: string;
 }
 
 export interface SeasonalPrice {
@@ -114,7 +122,6 @@ export interface RestaurantConfig {
   name: string;
   descriptor: string;
   establishedYear: number;
-  logo: string;
   /** Symbol prefixed to every price shown on the site (e.g. "₹", "$", "€"). */
   currency: string;
   tagline: string;
@@ -139,66 +146,65 @@ export interface RestaurantConfig {
 }
 
 export const restaurant: RestaurantConfig = {
-  name: "AAROH",
-  descriptor: "Modern Indian Kitchen",
-  establishedYear: 2018,
-  logo: "/images/logo.svg",
+  name: "NOOR",
+  descriptor: "Contemporary Coastal Kitchen",
+  establishedYear: 2022,
   currency: "₹",
-  tagline: "Modern Indian cuisine, rooted in tradition.",
+  tagline: "Contemporary coastal cuisine, rooted in the sea.",
   description:
-    "AAROH is a modern Indian kitchen in Mumbai, serving refined, tradition-rooted cuisine since 2018.",
+    "NOOR is a contemporary coastal Indian restaurant in Bandra, Mumbai, serving refined coastal cuisine since 2022.",
   location: {
     eyebrow: "Come Find Us",
-    heading: "An evening worth making your way across town for.",
-    address: "12 MG Road, Mumbai, Maharashtra",
+    heading: "An evening by the water, worth making your way across town for.",
+    address: "21 Carter Road, Bandra West, Mumbai, Maharashtra",
     city: "Mumbai",
     state: "Maharashtra",
-    mapUrl: "https://maps.google.com/?q=12+MG+Road+Mumbai",
+    mapUrl: "https://maps.google.com/?q=21+Carter+Road+Bandra+West+Mumbai",
   },
   hours: {
-    dinner: "6:30 PM — 11:00 PM",
-    kitchen: "Open until 10:30 PM",
-    walkIns: "Welcome",
+    dinner: "7:00 PM — 11:30 PM",
+    kitchen: "Open until 11:00 PM",
+    walkIns: "Subject to availability",
   },
   contact: {
-    phone: "+91 90000 00000",
-    whatsapp: "919000000000",
-    email: "hello@aaroh.in",
+    phone: "+91 98000 11223",
+    whatsapp: "919800011223",
+    email: "hello@noor.co.in",
   },
   social: {
-    instagram: "@aaroh",
+    instagram: "@noor.bombay",
   },
   hero: {
-    eyebrow: "Mumbai · Est. 2018",
-    title: "A table worth gathering around",
-    description: "Modern Indian cuisine, rooted in tradition.",
-    image: "/images/hero/aaroh-hero.png",
-    imageAlt: "Warm, softly lit dining room at AAROH set for evening service",
+    eyebrow: "Bandra, Mumbai · Coastal Kitchen",
+    title: "Where the coast meets the table",
+    description: "Contemporary coastal Indian cuisine, by the sea.",
+    image: "/images/noor/hero.png",
+    imageAlt: "Soft evening light over NOOR's oceanfront dining room in Bandra",
   },
   intro: {
     eyebrow: "The Philosophy",
-    statement: "Where the familiar meets the unexpected.",
+    statement: "Where the tide meets tradition.",
     description:
-      "Modern Indian cooking that respects traditional flavours while approaching ingredients, technique and presentation with a contemporary perspective.",
+      "A contemporary reading of India's coastal kitchens — fresh catch, coconut, kokum and spice, shaped by technique and served with quiet refinement.",
   },
   story: {
-    eyebrow: "Rooted in India",
-    heading: "Rooted in India. Made for today.",
+    eyebrow: "Rooted by the Sea",
+    heading: "Born on the coast. Refined for today.",
     paragraphs: [
-      "AAROH began with a simple idea — that Indian food can honour where it comes from while continuing to evolve.",
-      "Every dish draws on technique passed down over generations, reconsidered through a modern lens — in how it's sourced, cooked and served.",
+      "NOOR began with a single conviction — that India's coastal kitchens, from Malabar to Konkan to the Bengal delta, deserve a contemporary stage.",
+      "Each dish draws on techniques passed down through generations of coastal cooking, reconsidered through modern sourcing, technique and presentation.",
     ],
-    image: "/images/story/aaroh-story.png",
-    imageAlt: "Chef plating a dish in the AAROH kitchen",
+    image: "/images/noor/story.png",
+    imageAlt: "Chef plating a coastal seafood dish in the NOOR kitchen",
   },
   seasonal: {
     eyebrow: "Seasonal",
-    heading: "The Monsoon Table.",
+    heading: "The Coastal Tasting Table.",
     description:
-      "A considered menu inspired by the season — warm spices, smoky flavours and ingredients at their best.",
-    price: { amount: 1499, unit: "person" },
-    image: "/images/seasonal/monsoon-table.png",
-    imageAlt: "A seasonal Indian tasting spread styled for the monsoon menu",
+      "A considered tasting menu inspired by the monsoon coastline — fresh catch, coconut, kokum and green mango, at their peak.",
+    price: { amount: 2400, unit: "person" },
+    image: "/images/noor/seasonal-coastal-table.png",
+    imageAlt: "A coastal Indian tasting spread styled for NOOR's seasonal menu",
     cta: {
       mode: "reservation",
       label: "Reserve the experience",
@@ -207,7 +213,8 @@ export const restaurant: RestaurantConfig = {
   menuPage: {
     eyebrow: "Full Menu",
     heading: "The Menu",
-    description: "A modern expression of Indian cuisine.",
+    description: "A contemporary expression of coastal Indian cuisine.",
+    previewHeading: "Cooked by the coast, served to share.",
   },
   cta: {
     secondary: {
@@ -220,6 +227,8 @@ export const restaurant: RestaurantConfig = {
     enabled: true,
     label: "Reserve a Table",
     href: "/reserve",
+    description:
+      "Join us for an evening of coastal cooking, warm hospitality and good company.",
   },
   ordering: {
     enabled: false,

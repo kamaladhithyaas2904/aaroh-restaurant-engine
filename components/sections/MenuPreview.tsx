@@ -34,7 +34,7 @@ export function MenuPreview() {
           Menu
         </p>
         <h2 className="motion-fade-up motion-delay-1 mt-4 text-balance font-heading text-[clamp(2.25rem,4vw+1rem,3.75rem)] leading-[1.05]">
-          Cooked over fire, served to share.
+          {restaurant.menuPage.previewHeading}
         </h2>
 
         <ul className="mt-16 divide-y divide-border">

@@ -5,23 +5,19 @@
 export interface Experience {
   title: string;
   description: string;
-  icon?: string;
 }
 
 export const experiences: Experience[] = [
   {
-    title: "Thoughtful Ingredients",
-    description: "Seasonal produce, carefully sourced and treated with respect.",
-    icon: "leaf",
+    title: "Coastal Ingredients",
+    description: "Daily catch and seasonal coastal produce, sourced with care.",
   },
   {
-    title: "Open-Fire Cooking",
-    description: "Smoke, flame and time bring depth to familiar Indian flavours.",
-    icon: "flame",
+    title: "Live-Fire & Clay Oven",
+    description: "Smoke, flame and clay bring depth to coastal flavours.",
   },
   {
     title: "Warm Hospitality",
-    description: "An unhurried table, generous service and a reason to stay awhile.",
-    icon: "heart",
+    description: "An unhurried table by the sea, generous service and a reason to stay awhile.",
   },
 ];
