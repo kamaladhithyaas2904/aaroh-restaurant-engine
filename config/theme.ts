@@ -26,22 +26,18 @@ export interface Theme {
 
 export const theme: Theme = {
   colors: {
-    /** Ivory. */
-    background: "#F6F2E9",
-    /** Deep ocean blue, used as near-black text on the ivory background. */
-    foreground: "#101B26",
-    /** Warm sand — ~7.1:1 against `background`, comfortably past WCAG AA
-     * for the small uppercase labels/body copy that lean on this token
-     * throughout the light sections. */
-    muted: "#5C4F3D",
-    /** Muted brass. */
-    accent: "#A67C3D",
-    border: "#E6DFC9",
-    surface: "#FCFAF4",
-    /** Deep ocean blue. */
-    darkSection: "#0B2233",
-    /** Ivory. */
-    darkSectionForeground: "#F6F2E9",
+    background: "#F4F0E8",
+    foreground: "#171612",
+    /** Deepened from the original #6E6A61 (~4.7:1 against `background`, only
+     * marginally WCAG AA) to ~6.4:1 — still a warm gray, not a step toward
+     * black, but with real headroom for the small uppercase labels/body copy
+     * that lean on this token throughout the light sections. */
+    muted: "#5A564D",
+    accent: "#9A6A3A",
+    border: "#E4DFD2",
+    surface: "#FFFFFF",
+    darkSection: "#171612",
+    darkSectionForeground: "#F4F0E8",
   },
 };
 

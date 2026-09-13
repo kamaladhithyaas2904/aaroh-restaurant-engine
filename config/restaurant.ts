@@ -38,7 +38,6 @@ export interface OrderingConfig {
 
 export interface SocialLinks {
   instagram?: string;
-  facebook?: string;
 }
 
 export interface RestaurantLocation {
@@ -151,65 +150,65 @@ export interface RestaurantConfig {
 }
 
 export const restaurant: RestaurantConfig = {
-  name: "NOOR",
-  descriptor: "Contemporary Coastal Kitchen",
-  establishedYear: 2022,
+  name: "AAROH",
+  descriptor: "Modern Indian Kitchen",
+  establishedYear: 2018,
   currency: "₹",
-  tagline: "Contemporary coastal cuisine, rooted in the sea.",
+  tagline: "Modern Indian cuisine, rooted in tradition.",
   description:
-    "NOOR is a contemporary coastal Indian restaurant in Bandra, Mumbai, serving refined coastal cuisine since 2022.",
+    "AAROH is a modern Indian kitchen in Mumbai, serving refined, tradition-rooted cuisine since 2018.",
   location: {
     eyebrow: "Come Find Us",
-    heading: "An evening by the water, worth making your way across town for.",
-    address: "21 Carter Road, Bandra West, Mumbai, Maharashtra",
+    heading: "An evening worth making your way across town for.",
+    address: "12 MG Road, Mumbai, Maharashtra",
     city: "Mumbai",
     state: "Maharashtra",
-    mapUrl: "https://maps.google.com/?q=21+Carter+Road+Bandra+West+Mumbai",
+    mapUrl: "https://maps.google.com/?q=12+MG+Road+Mumbai",
   },
   hours: {
-    dinner: "7:00 PM — 11:30 PM",
-    kitchen: "Open until 11:00 PM",
-    walkIns: "Subject to availability",
+    dinner: "6:30 PM — 11:00 PM",
+    kitchen: "Open until 10:30 PM",
+    walkIns: "Welcome",
   },
   contact: {
-    phone: "+91 98000 11223",
-    whatsapp: "919800011223",
-    email: "hello@noor.co.in",
+    phone: "+91 90000 00000",
+    whatsapp: "919000000000",
+    email: "hello@aaroh.in",
   },
   social: {
-    instagram: "@noor.bombay",
+    instagram: "@aaroh",
   },
   hero: {
-    eyebrow: "Bandra, Mumbai · Coastal Kitchen",
-    title: "Where the coast meets the table",
-    description: "Contemporary coastal Indian cuisine, by the sea.",
-    image: "/images/noor/hero.png",
-    imageAlt: "Soft evening light over NOOR's oceanfront dining room in Bandra",
+    eyebrow: "Mumbai · Est. 2018",
+    title: "A table worth gathering around",
+    description: "Modern Indian cuisine, rooted in tradition.",
+    image: "/images/aaroh/hero.png",
+    imageAlt: "Warm, softly lit dining room at AAROH set for evening service",
   },
   intro: {
     eyebrow: "The Philosophy",
-    statement: "Where the tide meets tradition.",
+    statement: "Where the familiar meets the unexpected.",
     description:
-      "A contemporary reading of India's coastal kitchens — fresh catch, coconut, kokum and spice, shaped by technique and served with quiet refinement.",
+      "Modern Indian cooking that respects traditional flavours while approaching ingredients, technique and presentation with a contemporary perspective.",
   },
   story: {
-    eyebrow: "Rooted by the Sea",
-    heading: "Born on the coast. Refined for today.",
+    eyebrow: "Rooted in India",
+    heading: "Rooted in India. Made for today.",
     paragraphs: [
-      "NOOR began with a single conviction — that India's coastal kitchens, from Malabar to Konkan to the Bengal delta, deserve a contemporary stage.",
-      "Each dish draws on techniques passed down through generations of coastal cooking, reconsidered through modern sourcing, technique and presentation.",
+      "AAROH began with a simple idea — that Indian food can honour where it comes from while continuing to evolve.",
+      "Every dish draws on technique passed down over generations, reconsidered through a modern lens — in how it's sourced, cooked and served.",
     ],
-    image: "/images/noor/story.png",
-    imageAlt: "Chef plating a coastal seafood dish in the NOOR kitchen",
+    image: "/images/aaroh/story.png",
+    imageAlt: "Chef plating a dish in the AAROH kitchen",
   },
   seasonal: {
     eyebrow: "Seasonal",
-    heading: "The Coastal Tasting Table.",
+    heading: "The Monsoon Table.",
     description:
-      "A considered tasting menu inspired by the monsoon coastline — fresh catch, coconut, kokum and green mango, at their peak.",
-    price: { amount: 2400, unit: "person" },
-    image: "/images/noor/seasonal.png",
-    imageAlt: "A coastal Indian tasting spread styled for NOOR's seasonal menu",
+      "A considered menu inspired by the season — warm spices, smoky flavours and ingredients at their best.",
+    price: { amount: 1499, unit: "person" },
+    image: "/images/aaroh/seasonal.png",
+    imageAlt: "A seasonal Indian tasting spread styled for the monsoon menu",
     cta: {
       mode: "reservation",
       label: "Reserve the experience",
@@ -218,8 +217,8 @@ export const restaurant: RestaurantConfig = {
   menuPage: {
     eyebrow: "Full Menu",
     heading: "The Menu",
-    description: "A contemporary expression of coastal Indian cuisine.",
-    previewHeading: "Cooked by the coast, served to share.",
+    description: "A modern expression of Indian cuisine.",
+    previewHeading: "Cooked over fire, served to share.",
   },
   cta: {
     secondary: {
@@ -233,7 +232,7 @@ export const restaurant: RestaurantConfig = {
     label: "Reserve a Table",
     href: "/reserve",
     description:
-      "Join us for an evening of coastal cooking, warm hospitality and good company.",
+      "Join us for an evening of modern Indian cooking, warm hospitality and good company.",
   },
   ordering: {
     enabled: false,

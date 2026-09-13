@@ -24,6 +24,8 @@ function getSignatureDishes(): SignatureDish[] {
 export function SignatureDishes() {
   const dishes = getSignatureDishes();
 
+  if (dishes.length === 0) return null;
+
   return (
     <section className="bg-background px-6 py-24 text-foreground sm:px-10 md:px-16 md:py-32">
       <div className="mx-auto max-w-6xl">

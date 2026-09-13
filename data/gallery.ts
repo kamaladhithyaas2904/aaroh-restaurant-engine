@@ -13,26 +13,26 @@ export interface GalleryImage {
 
 export const gallery: GalleryImage[] = [
   {
-    image: "/images/noor/gallery/dining-room.png",
-    alt: "NOOR dining room overlooking the coast",
+    image: "/images/aaroh/gallery/dining-room.png",
+    alt: "AAROH dining room",
     caption: "The main dining room",
     category: "interior",
   },
   {
-    image: "/images/noor/gallery/open-kitchen.png",
-    alt: "NOOR's open coastal kitchen",
-    caption: "Our coastal kitchen",
+    image: "/images/aaroh/gallery/open-kitchen.png",
+    alt: "Open-fire kitchen",
+    caption: "Our open-fire kitchen",
     category: "ambience",
   },
   {
-    image: "/images/noor/gallery/plated-dish.png",
-    alt: "Plated signature coastal dish",
+    image: "/images/aaroh/gallery/plated-dish.png",
+    alt: "Plated signature dish",
     caption: "A seasonal dessert",
     category: "food",
   },
   {
-    image: "/images/noor/gallery/bar.png",
-    alt: "The bar area at NOOR",
+    image: "/images/aaroh/gallery/bar.png",
+    alt: "The bar area",
     caption: "The bar, after dark",
     category: "interior",
   },

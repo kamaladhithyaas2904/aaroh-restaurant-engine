@@ -9,15 +9,15 @@ export interface Experience {
 
 export const experiences: Experience[] = [
   {
-    title: "Coastal Ingredients",
-    description: "Daily catch and seasonal coastal produce, sourced with care.",
+    title: "Thoughtful Ingredients",
+    description: "Seasonal produce, carefully sourced and treated with respect.",
   },
   {
-    title: "Live-Fire & Clay Oven",
-    description: "Smoke, flame and clay bring depth to coastal flavours.",
+    title: "Open-Fire Cooking",
+    description: "Smoke, flame and time bring depth to familiar Indian flavours.",
   },
   {
     title: "Warm Hospitality",
-    description: "An unhurried table by the sea, generous service and a reason to stay awhile.",
+    description: "An unhurried table, generous service and a reason to stay awhile.",
   },
 ];
